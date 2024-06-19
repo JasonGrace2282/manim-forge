@@ -2,6 +2,7 @@ use numpy::ndarray::{s, Array2, ArrayView1, ArrayView2, Axis};
 use numpy::PyReadonlyArray2;
 use pyo3::intern;
 use pyo3::prelude::*;
+use pyo3::types::{PyTuple, PyDict};
 use std::iter;
 
 /// Check if two points are approximately equal
@@ -64,11 +65,12 @@ pub struct CairoCamera;
 #[pymethods]
 impl CairoCamera {
     #[new]
-    fn new() -> Self {
+    #[pyo3(signature=(*_args, **_kwargs))]
+    fn new(_args: &Bound<'_, PyTuple>, _kwargs: Option<&Bound<'_, PyDict>>) -> Self {
         Self
     }
 
-    fn set_cairo_context_path<'py>(
+    pub fn set_cairo_context_path<'py>(
         &self,
         py: Python<'py>,
         ctx: Py<PyAny>,
@@ -104,5 +106,9 @@ impl CairoCamera {
 
         }
         Ok(())
+    }
+
+    pub fn __getstate__(&self, py: Python<'_>) -> PyObject {
+        ().to_object(py)
     }
 }
