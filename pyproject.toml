@@ -3,7 +3,7 @@ requires = ["maturin>=1.6,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "manimrust"
+name = "manimforge"
 requires-python = ">=3.9,<3.13"
 classifiers = [
     "Programming Language :: Rust",
@@ -16,7 +16,7 @@ dynamic = ["version"]
 features = ["pyo3/extension-module"]
 
 [tool.poetry]
-name = "manimrust"
+name = "manimforge"
 version = "0.18.1"
 description = "Animation engine for explanatory math videos."
 authors = ["The Manim Community Developers <contact@manim.community>"]
@@ -24,3 +24,4 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.13"
+maturin = ">=1.6,<2.0"
