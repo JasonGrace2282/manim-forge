@@ -4,6 +4,10 @@ build-backend = "maturin"
 
 [project]
 name = "manimforge"
+description = "Rust parts of the Animation Library Manim"
+version = "0.1.1"
+readme = "README.md"
+license = "MIT"
 requires-python = ">=3.9,<3.13"
 classifiers = [
     "Programming Language :: Rust",
@@ -11,17 +15,12 @@ classifiers = [
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dynamic = ["version"]
+dependencies = []
+
+[project.urls]
+documentation="https://docs.manim.community/"
+homepage="https://www.manim.community/"
+repository = "https://github.com/ManimCommunity/manim-forge"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
-
-[tool.poetry]
-name = "manimforge"
-version = "0.0.1"
-description = "Animation engine for explanatory math videos."
-authors = ["The Manim Community Developers <contact@manim.community>"]
-package-mode = false
-
-[tool.poetry.dependencies]
-python = ">=3.9,<3.13"
-maturin = ">=1.6,<2.0"
