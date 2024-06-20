@@ -60,6 +60,7 @@ where
 
 /// The base class for Manim.Camera with --renderer=cairo
 #[pyclass(subclass)]
+#[derive(Clone)]
 pub struct CairoCamera;
 
 #[pymethods]
@@ -108,7 +109,11 @@ impl CairoCamera {
         Ok(())
     }
 
-    pub fn __getstate__(&self, py: Python<'_>) -> PyObject {
-        ().to_object(py)
+    pub fn __copy__(&self) -> Self {
+        self.clone()
+    }
+
+    pub fn __deepcopy__(&self, _memo: Py<PyAny>) -> Self {
+        self.clone()
     }
 }
