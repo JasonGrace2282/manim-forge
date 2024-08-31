@@ -6,20 +6,17 @@ use pyo3::types::{PyTuple, PyDict};
 use std::iter;
 
 /// Check if two points are approximately equal
-fn consider_points_equal_2d<T: num_traits::Float>(p1: ArrayView1<T>, p2: ArrayView1<T>) -> bool {
-    let rtol = T::from(1e-5).expect("rtol is a float");
-    let atol = T::from(1e-6).expect("atol is a float"); // TODO make this based off vmobject
+fn consider_points_equal_2d(p1: ArrayView1<f64>, p2: ArrayView1<f64>) -> bool {
+    let rtol = 1e-5;
+    let atol = 1e-6; // TODO make this based off vmobject
     ((p1[0] - p2[0]).abs() <= atol + rtol * p1[0].abs())
         & ((p1[1] - p2[1]).abs() <= atol + rtol * p1[1].abs())
 }
 
-// fn consider_points_equal<T: num_traits::Float>(p1: ArrayView1<T>, p2: ArrayView1<T>) -> bool {
-//     p1.iter().zip(p2.iter()).all(|(a, b)| a == b)
-// }
 
-fn gen_subpaths_from_points_2d<T: num_traits::Float + std::fmt::Debug>(
-    points: ArrayView2<T>,
-) -> Vec<Array2<T>> {
+fn gen_subpaths_from_points_2d(
+    points: ArrayView2<f64>,
+) -> Vec<Array2<f64>> {
     let nppcc = 4;
     let filtered = (nppcc..points.len_of(Axis(0))).step_by(nppcc).filter(|&n| {
         !consider_points_equal_2d(
@@ -45,9 +42,7 @@ fn gen_subpaths_from_points_2d<T: num_traits::Float + std::fmt::Debug>(
         .collect()
 }
 
-fn gen_cubic_bezier_tuples_from_points<T>(points: ArrayView2<T>) -> Vec<Array2<T>>
-where
-    T: Clone,
+fn gen_cubic_bezier_tuples_from_points(points: ArrayView2<f64>) -> Vec<Array2<f64>>
 {
     let nppcc = 4;
     let remainder = points.len() % nppcc;
