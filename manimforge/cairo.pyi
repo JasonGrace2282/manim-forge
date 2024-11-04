@@ -7,7 +7,12 @@ import cairo
 class CairoCamera:
     def __init__(self, *args, **kwargs) -> None: ...
 
-    def set_cairo_context_path(self, ctx: cairo.Context, vmobject: Any, points: npt.NDArray[np.float64]) -> None:
+    def set_cairo_context_path(
+        self,
+        ctx: cairo.Context,
+        vmobject: Any,
+        points: npt.NDArray[np.float64]
+    ) -> None:
         """Traces a VMobject on the :class:`cairo.Context`.
 
         Parameters
