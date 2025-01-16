@@ -9,6 +9,5 @@ name = "manimforge"
 crate-type = ["cdylib"]
 
 [dependencies]
-num-traits = "0.2.19"
 numpy = "0.21.0"
 pyo3 = "0.21.1"
