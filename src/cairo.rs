@@ -10,7 +10,7 @@ fn consider_points_equal_2d(p1: ArrayView1<f64>, p2: ArrayView1<f64>) -> bool {
     let rtol = 1e-5;
     let atol = 1e-6; // TODO make this based off vmobject
     ((p1[0] - p2[0]).abs() <= atol + rtol * p1[0].abs())
-        & ((p1[1] - p2[1]).abs() <= atol + rtol * p1[1].abs())
+        && ((p1[1] - p2[1]).abs() <= atol + rtol * p1[1].abs())
 }
 
 

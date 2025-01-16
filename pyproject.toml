@@ -5,7 +5,6 @@ build-backend = "maturin"
 [project]
 name = "manimforge"
 description = "Rust parts of the Animation Library Manim"
-version = "0.1.1"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.9,<3.13"
@@ -21,6 +20,9 @@ dependencies = []
 documentation="https://docs.manim.community/"
 homepage="https://www.manim.community/"
 repository = "https://github.com/ManimCommunity/manim-forge"
+
+[dependency-groups]
+dev = ["manim>0.18.0,<0.20.0", "maturin==1.8.*"]
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
