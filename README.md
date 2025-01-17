@@ -15,6 +15,13 @@ you'll need to [install Rust](https://www.rust-lang.org/tools/install).
 If you're using a mainstream operating system and this happens (macOS,
 Windows, some glibc-based linux distros), please file a bug!
 
+After that, it should be as simple as inserting the following before
+rendering a scene:
+```py
+import manimforge as mf
+mf.setup()
+```
+
 ## Testing
 1. Clone the repo
 2. Create a virtual environment using something like [`uv`](https://docs.astral.sh/uv/) (`uv venv`)

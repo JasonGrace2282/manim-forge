@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Install dependencies for Manim
-        run: apt-get install libcairo2-dev libpango1.0-dev
+        run: sudo apt-get install libcairo2-dev libpango1.0-dev
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
