@@ -12,8 +12,26 @@ pip install manimforge
 ```
 In the off-chance your operating system doesn't have prebuilt wheels,
 you'll need to [install Rust](https://www.rust-lang.org/tools/install).
-If you're using a mainstream operating system and this happens (macOS,
-Windows, some glibc-based linux distros), please file a bug!
+
+After that, it should be as simple as inserting the following before
+rendering a scene:
+```py
+import manimforge as mf
+mf.setup()
+```
+
+### Supported Versions
+This library is only tested with the following:
+
+- Windows (x86-64)
+- macOS (x86-64)
+- macOS (aarch64)
+- Linux (x86-64 glibc)
+- Linux (x86 glibc)
+
+This library supports the versions of python that Manim
+itself supports. However, there are some exceptions: namely
+that free-threaded builds of python are not supported.
 
 ## Testing
 1. Clone the repo

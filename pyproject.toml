@@ -25,7 +25,9 @@ classifiers = [
     "Natural Language :: English",
 ]
 dynamic = ["version"]
-dependencies = ["manim>0.18.0"]
+dependencies = [
+  "manim > 0.18.0",
+]
 
 [project.urls]
 documentation="https://docs.manim.community/"
