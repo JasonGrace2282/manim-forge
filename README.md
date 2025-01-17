@@ -23,11 +23,11 @@ mf.setup()
 ### Supported Versions
 This library is only tested with the following:
 
-- Windows
-- macOS
+- Windows (x86-64)
+- macOS (x86-64)
+- macOS (aarch64)
 - Linux (x86-64 glibc)
 - Linux (x86 glibc)
-- Linux (aarch64 glibc)
 
 This library supports the versions of python that Manim
 itself supports. However, there are some exceptions: namely
