@@ -41,6 +41,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Install dependencies for Manim
+        run: apt-get install libcairo2-dev libpango1.0-dev
       - name: Build wheels
         uses: PyO3/maturin-action@v1
         with:
@@ -117,7 +119,7 @@ jobs:
           options: -v ${{ github.workspace }}:/io -w /io
           run: |
             set -e
-            apk add py3-pip py3-virtualenv
+            apk add py3-pip py3-virtualenv git
             python3 -m virtualenv .venv
             source .venv/bin/activate
             pip install manimforge --no-index --find-links dist --force-reinstall
@@ -131,7 +133,7 @@ jobs:
           distro: alpine_latest
           githubToken: ${{ github.token }}
           install: |
-            apk add py3-virtualenv
+            apk add py3-virtualenv git
           run: |
             set -e
             python3 -m virtualenv .venv
