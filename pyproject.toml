@@ -22,7 +22,17 @@ homepage="https://www.manim.community/"
 repository = "https://github.com/ManimCommunity/manim-forge"
 
 [dependency-groups]
-dev = ["maturin>=1.8.0"]
+dev = [
+    "maturin>=1.8.0",
+    "pytest>=8.3.4",
+]
 
 [tool.maturin]
 features = ["pyo3/extension-module"]
+
+[tool.uv]
+# prevent constant rebuilding
+package = false
+
+[tool.pytest.ini_options]
+filterwarnings = ["ignore::DeprecationWarning:pydub"]
