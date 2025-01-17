@@ -50,7 +50,7 @@ dependencies = [
 
 [[package]]
 name = "manimforge"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
  "numpy",
  "pyo3",
