@@ -1,8 +1,10 @@
 # Manim-Forge
-Some parts of the python library [Manim](https://www.manim.community) need
-to be executed fast. This library contains code
-for these computations, but written in Rust
-to improve speed.
+Some parts of the python library [Manim](https://www.manim.community) need to be executed fast.
+This library contains code for these computations, but written in Rust
+to improve speed. This is an offshoot of [ManimCommunity/manim#3808](https://github.com/ManimCommunity/manim/pull/3808).
+
+Note that not everything is rewritten in Rust, but only the parts that are
+called extremely frequently.
 
 ## Usage
 First, [install manim](https://docs.manim.community/en/stable/installation.html).
